@@ -4,8 +4,9 @@ const app = require('express')(),
     port = '1300',
     path = require('path');
     bodyParser = require('body-parser'),
-    cookieParser = require('cookie-parser');
-
+    cookieParser = require('cookie-parser'),
+    localtunnel  = require('localtunnel');
+    dirName = path.join(__dirname, '../client/dist');
 
 // =============== set view engine ===================
 app.set('view engine', 'ejs');
@@ -29,28 +30,52 @@ app.use( headers );
 app.use( '/', items);
 
 
-app.get('/test', (req, res) => {
-    console.log(req.cookies);
-    res.cookie('dirName', 'views');
-    res.render('index', {title : 'this is shit'});
-    // res.sendFile( path.join(__dirname, 'views', 'index.html' ));
-    // res.sendFile( path.join(__dirname, 'views', 'script.js' ));
+app.get('/', (req, res) => {
+    // console.log(req.cookies);
+    // res.cookie('dirName', 'views');
+    // res.render('index', {title : "this is shit"});
+    // console.log(path.join(__dirname, '../client/dist', 'index.html'));
+    res.sendFile(path.join(dirName, 'index.html'));
+
 })
 
-app.get('/[A-Za-z]*.js', (req, res) => {
-    console.log('get script');
+// app.get('/bundle.js', (req, res) => {
+//     const fileName = req.url;
+//     const { dirName } = req.cookies;
+
+//     const fPath = path.join( __dirname, dirName, fileName );
+//     res.sendFile( fPath );
+//     // res.sendStatus(404);
+// })
+// app.get('/style.css', (req, res) => {
+//     const fileName = req.url;
+//     const { dirName } = req.cookies;
+
+//     const fPath = path.join( __dirname, dirName, fileName );
+//     res.sendFile( fPath );
+//     // res.sendStatus(404);
+// })
+
+
+app.get(/(.*\..*)/, (req, res) => {
     const fileName = req.url;
-    const { dirName } = req.cookies;
-
-    const fPath = path.join( __dirname, dirName, fileName );
-
+    const fPath = path.join( dirName, 'build', fileName );
     res.sendFile( fPath );
-    // res.sendStatus(404);
 })
+
+
 
 
 //===========  starting a server ======================
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log('App is listening on port ' + port);
 })
 
+
+localtunnel(port, (err, tunnel) => {
+    if(err) {
+        console.log(err);
+        return;
+    }
+    console.log(tunnel.url);
+});

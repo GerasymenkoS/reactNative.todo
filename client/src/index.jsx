@@ -14,8 +14,10 @@ const store = createStore(
     composeWithDevTools(applyMiddleware(thunk))
 );
 
-const app = document.getElementById("app");
-const title = app.dataset.title;
+const pTitle = document.getElementById('title');
+const app = document.getElementById('app');
+console.log(app);
+const title = pTitle.value;
 
 ReactDOM.render(
     <Provider store = {store}>

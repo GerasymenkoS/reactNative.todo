@@ -1,0 +1,10 @@
+export const color_main      = '#2c3e50';
+export const color_silver    = '#bdc3c7';
+export const color_gray      = '#ecf0f1';
+export const color_blue      = '#2980b9';
+export const color_red       = '#e74c3c';
+export const color_aqua      = '#16a085';
+export const color_green     = '#2ecc71';
+export const color_black     = '#000000';
+export const color_white     = '#ffffff';
+export const color_dark_gray = '#7f8c8d';
