@@ -1,0 +1,48 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>TodoList Login page</title>
+        <link rel="stylesheet" href="./login.css">
+    </head>
+    <body>
+        <div class="login-page">
+            <div class="login-page__form">
+                <div>
+                    <input type="text" required class="login-page__form__input" placeholder="Login">
+                    <input type="password" required class="login-page__form__input" placeholder="Password">
+                </div>
+                <div class="login-page__form__error">login-page__form__error</div>
+                <button id='submitButton' class="login-page__form__button">Log in</button>
+            </div>
+        </div>
+        <script>
+            const submit = (e) => {
+                e.preventDefault();
+                const errorCont = document.querySelector('.login-page__form__error');
+                const inputs = document.querySelectorAll('.login-page__form__input');
+                const login = inputs[0].value;
+                const password = inputs[1].value;
+                const fetchUrl = `/auth?type=login&login=${login}&password=${password}`;
+
+                fetch( fetchUrl, {
+                    method : 'GET'
+                } )
+                .then( response => {
+                    if( response.redirected ) window.location.href = response.url;
+                    return response.text()
+                }).then( text => {
+                    errorCont.innerHTML = text;
+                    errorCont.classList.add('visible');
+                } )
+                // .then( response => {
+                //     response.text().then( (text) => {
+                //         console.log(text);
+                //     } )
+                // })
+            }
+            document.getElementById('submitButton').addEventListener('click', submit);
+        </script>
+    </body>
+    </html>

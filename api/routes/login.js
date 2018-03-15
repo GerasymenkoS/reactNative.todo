@@ -16,4 +16,4 @@ const
 
 
 
-module.exports = fileHandler( 'login.html', 'login' );
+module.exports = fileHandler( 'login' );

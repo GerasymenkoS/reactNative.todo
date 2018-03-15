@@ -51,7 +51,7 @@ class ToDoList extends Component {
                         onClick = {this.onItemSubmit}
                         materialName = 'add'
                         tooltipText = 'new todo'
-                        tooltipPos = 'top'
+                        tooltipPos = 'bottom'
                     />
                 </div>
                 <ul className="todolist__items-wrapper">

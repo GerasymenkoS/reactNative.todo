@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-html,body {
+html, body {
     height: 100%;
 }
 
@@ -31,6 +31,8 @@ html,body {
     -webkit-font-smoothing: antialiased;
 }
 
+
+
 .login-page {
     height: 100%;
     background-color: lightblue;
@@ -42,7 +44,7 @@ html,body {
 .login-page__form {
     width: 20%;
     height: 20%;
-
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -56,11 +58,35 @@ html,body {
 }
 
 .login-page__form__input {
+    border-radius: 5px;
     height: 50px;
     padding: 10px;
     border: none;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     outline: none;
+}
+
+.login-page__form__error {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    /* display: none; */
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    background: rgba(141, 0, 0, 0.596);
+    transition: 1s ease all;
+}
+
+.visible {
+    /* transform: translateY(-200px); */
+    bottom: 150%;
+    opacity: 1;
+}
+
+.wrong {
+    background: #ff01017e
 }
 
 .login-page__form__button {
@@ -68,4 +94,6 @@ html,body {
     border: none;
     height: 30%;
     width: 50%;
+    margin-top: 20px;
+    border-radius: 5px;
 }

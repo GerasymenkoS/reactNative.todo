@@ -8,16 +8,14 @@ const doLogin = async (req, res, next) => {
         if(dbUser.password === password) {
             req.session.authorised = true;
             req.session.login = login;
+            res.redirect('/');
+            return;
         }
     });
     if ( !req.session.authorised ) { 
-        req.statusCode = 400;
-        console.log('not');
-        next('Authorisation failed');
+        req.statusText = 'Wrong login or password';
+        next(400);
      }
-};
-
-const checkLogin = ( req, res, next ) => {
 };
 
 const doLogout = ( req, res, next ) => {
@@ -31,13 +29,9 @@ const actions = {
     'logout' : doLogout
 }
 
-
 router.use(( req, res, next ) => {
     const type = req.query.type;
     actions[type](req, res, next);
-    if (req.session.authorised) {
-        res.redirect('/');
-    }
 })
 
 
