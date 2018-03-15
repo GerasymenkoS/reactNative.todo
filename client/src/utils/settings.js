@@ -14,10 +14,8 @@ const root = {
 }
 
 export const apiLinks = {
-    actions: {
-        dev: 'http://localhost:1300/',
-        public: 'https://boriscooper.maximarkets.site/bc-calendar/api/index.php'
-    }
+    dev: 'http://localhost:1300/',
+    public: 'https://boriscooper.maximarkets.site/bc-calendar/api/index.php'
 };
 
 export let currentHost;

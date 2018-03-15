@@ -1,0 +1,36 @@
+@import '../../assets/variables.less';
+
+.custom-button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: @color-blue;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        border-radius: 100%;
+        transition: .1s ease all;
+        .material-icons {
+            color: @main-color;
+        }
+        &.red {
+            background: darken(@color-red, 10%);
+            &:hover {
+                background: darken(@color-red, 15%);
+            }
+        }
+
+        &:hover {
+            background: lighten(@color-blue, 10%);
+        }
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}

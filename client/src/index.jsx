@@ -9,14 +9,17 @@ import React from 'react';
 import './assets/style.less';
 
 
-// const store = createStore(
-//     reducers,
-//     composeWithDevTools(applyMiddleware(thunk))
-// );
+const store = createStore(
+    reducers,
+    composeWithDevTools(applyMiddleware(thunk))
+);
+
+const app = document.getElementById("app");
+const title = app.dataset.title;
 
 ReactDOM.render(
-    // <Provider store = {store}>
-    <App/>,
-    // </Provider>,
-    document.getElementById("app")
+    <Provider store = {store}>
+        <App title = { title }/>
+    </Provider>,
+    app
 );

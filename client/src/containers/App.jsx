@@ -1,29 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Header from '../presenters/Header';
+import ToDoList from './presenters/ToDoList';
 
 export default class App extends Component {
-    constructor (props) {
-        super(props)
-  
-        this.state = {
-            response:'s'
-        }
-
-    }
-  
-    componentDidMount () {
-        fetch('http://localhost:1300').then( response => {
-            return response.text();
-        }).then( responseText => {
-            console.log(responseText);
-            this.setState({response:responseText});
-
-        })
+    constructor () {
+        super()
     }
 
+    componentWillMount () {
+        document.addEventListener('selectstart', () => {return;})
+    }
+  
     render () {
         return (
             <div>
-                <textarea>{this.state.response}</textarea>
+                <Header title = {this.props.title}/>
+                <ToDoList/>
             </div>
         )
     }

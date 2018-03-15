@@ -1,0 +1,61 @@
+@import '../../assets/variables.less';
+@import '../../assets/mixins.less';
+.custom-input {
+    padding: 20px 10px;
+    
+    position: relative;
+    width: 30%;
+    &__wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__label {
+        position: absolute;
+        opacity: 0;
+        top: 30%;
+        width: 100%;
+        transition: .2s ease all;
+    }
+    &__border {
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        &::after {
+            content: '';
+            width: 0;
+            border-bottom: 2px solid @color-blue;
+            position: absolute;
+            bottom: 0;
+            transition: 0.2s cubic-bezier(0.4, 0, 1, 1) all;
+        }
+    }
+    .custom-input__item {
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid darken(@main-color, 10%);
+        padding: 15px 5px 10px 5px;
+        background: transparent;
+        outline: none;
+        .placeHolder ({
+            transition: .5s ease all;
+        });
+        &:focus {
+            .placeHolder({
+                color: transparent;
+            });
+            &+.custom-input__label {
+                opacity: 1;
+                position: absolute;
+                top: -15px;
+                font-size: 20px;
+                &+.custom-input__border::after {
+                    width: 100%;
+                }
+            }
+           
+        }
+    }
+}

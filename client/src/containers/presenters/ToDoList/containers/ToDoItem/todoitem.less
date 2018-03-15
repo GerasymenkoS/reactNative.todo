@@ -1,0 +1,54 @@
+@import '../../../../../assets/variables.less';
+.todo-item {
+    
+    width: 100%;
+    border: 1px solid darken( @main-color, 20% );
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    min-height: 10%;
+
+    margin-bottom: 15px;
+    
+    &:hover {
+        background: darken( @main-color, 10% );
+        color: @color-black;
+    }
+
+    &__title {
+        flex: 5;
+        max-width: 90%;
+        
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 20px;
+        word-break: break-all;
+        overflow-x: auto;
+        margin: 10px 10px;
+
+        &--edit {
+            background: @main-color;
+            
+            border-radius: 5px;
+            font-size: 15px;
+            outline: none;
+            resize: none;
+            border: none;
+            padding: 5px;
+            width: 100%;
+        }
+
+    }
+    &__controls {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px 0;
+
+        &.save {
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+    }
+}

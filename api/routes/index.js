@@ -1,17 +1,10 @@
+const router = require('express').Router();
 
-const routes = require('express').Router();
-
-const middleware = [
-    require('./create.js'),
-    require('./read.js'),
-    require('./headers.js'),
-    require('./update.js'),
-    require('./delete.js')
+const routes = [
+    require('./items'),
+    require('./error')
 ]
 
-const getRoutes = reqUrl => {
-    routes.get( reqUrl, middleware);
-    return routes;
-}
+router.use(routes);
 
-module.exports = getRoutes;
+module.exports = router;
