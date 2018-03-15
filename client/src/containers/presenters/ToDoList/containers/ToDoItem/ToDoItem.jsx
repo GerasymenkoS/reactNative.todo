@@ -55,13 +55,17 @@ class ToDoItem extends Component {
                         onClick = {this.toggleEditMode}
                         size = '25px'
                         fSize = '15px'
+                        tooltipText = 'edit'
+                        tooltipPos = 'top'
                     />
                     <Button
                         materialName = 'close'
                         onClick = {this.onItemRemove}
                         size = '25px'
                         fSize = '15px'
-                        bColor = 'red' 
+                        bColor = 'red'
+                        tooltipText = 'delete'
+                        tooltipPos = 'top'
                     />
                 </div>
             );
@@ -86,6 +90,17 @@ class ToDoItem extends Component {
             )
         }
 
+        const SaveButton = () => {
+            return (
+                <Button
+                    materialName = 'check'
+                    onClick = {this.onItemEdit}
+                    tooltipPos = 'top'
+                    tooltipText = 'save'
+                />
+            )
+        }
+
 
         return (
             <li 
@@ -96,7 +111,7 @@ class ToDoItem extends Component {
                 >
                     { isEditing ? EditInput : <Title/> }
                 </div>
-                { isEditing ? <Button materialName = 'check' onClick = {this.onItemEdit} /> : <Controls/> }
+                { isEditing ? <SaveButton/> : <Controls/> }
             </li>
         )
     }

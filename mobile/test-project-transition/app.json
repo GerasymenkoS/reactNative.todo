@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "mobile",
+    "name": "test-project-transition",
     "description": "An empty new project",
-    "slug": "mobile",
+    "slug": "test-project-transition",
     "privacy": "public",
     "sdkVersion": "23.0.0",
     "version": "1.0.0",

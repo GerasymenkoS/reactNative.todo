@@ -19,7 +19,7 @@ class ToDoList extends Component {
     }
 
     componentDidMount () {
-        this.props.onReadItems();
+        // this.props.onReadItems();
     }
 
     onItemTextChange (e) {
@@ -50,6 +50,8 @@ class ToDoList extends Component {
                     <Button
                         onClick = {this.onItemSubmit}
                         materialName = 'add'
+                        tooltipText = 'new todo'
+                        tooltipPos = 'top'
                     />
                 </div>
                 <ul className="todolist__items-wrapper">

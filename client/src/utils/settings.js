@@ -1,8 +1,11 @@
 const host = window.location.hostname;
 
 const hosts = {
-    'dev': 'localhost',
-    'public': 'localtunnel.me'
+    'dev': ['localhost', '127.0.0.1'],
+    'public': [
+        '',
+        ''
+    ]
 };
 
 const root = {
@@ -12,14 +15,13 @@ const root = {
 
 export const apiLinks = {
     dev: 'http://localhost:1300/',
-    public: '/'
+    public: 'https://boriscooper.maximarkets.site/bc-calendar/api/index.php'
 };
 
 export let currentHost;
 
 for (let key in hosts) {
-    if (host.includes(hosts[key])) currentHost = key;
+    if (hosts[key].includes(host)) currentHost = key;
 }
 
-console.log(currentHost);
 export let rootFolder = root[currentHost];

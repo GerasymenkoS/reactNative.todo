@@ -5,7 +5,16 @@ import {
     READ_ITEMS_SUCCESS
 } from '../utils/actiontypes.js';
 
-const initialState = [];
+const initialState = [
+    {
+        id : 1,
+        text : 'first item'
+    },
+    {
+        id : 2,
+        text : 'second item'
+    }
+];
 let id = 0;
 const todoItems = ( state = initialState, action ) => {
     let ret = state;

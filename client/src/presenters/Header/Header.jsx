@@ -18,6 +18,8 @@ export default class Header extends Component {
                         bColor = 'red' 
                         size = '50px'
                         fSize = '25px'
+                        tooltipPos = 'left'
+                        tooltipText = 'logout'
                     />
                 </div>
             </div>
