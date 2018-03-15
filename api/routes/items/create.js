@@ -1,5 +1,5 @@
 
-const ToDoModel = require(`${__root}/models`).ToDo;
+const ToDoModel = require('../../models').ToDo;
 
 const create = (req, res, next) => {
     const text = req.body.text;

@@ -1,4 +1,4 @@
-const ToDoModel = require(`${__root}/models`).ToDo;
+const ToDoModel = require('../../models').ToDo;
 
 const deleteF = async (req, res, next) => {
     let _id = req.body._id;

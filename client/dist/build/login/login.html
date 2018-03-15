@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoList Login page</title>
+    <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+    <div class="login-page">
+        <form class="login-page__form">
+            <div>
+                <input type="text" class="login-page__form__input" placeholder="Login">
+                <input type="password" class="login-page__form__input" placeholder="Password">
+            </div>
+            <button id='submitButton' class="login-page__form__button">Log in</button>
+        </form>
+    </div>
+    <script>
+        
+        const click = (e) => {
+            e.preventDefault();
+            console.log('submit');
+        }
+        document.getElementById('submitButton').addEventListener('click', click);
+    </script>
+</body>
+</html>

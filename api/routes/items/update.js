@@ -1,4 +1,4 @@
-const ToDoModel = require(`${__root}/models`).ToDo;
+const ToDoModel = require('../../models').ToDo;
 
 const update = async (req, res, next) => {
     const _id = req.body._id;

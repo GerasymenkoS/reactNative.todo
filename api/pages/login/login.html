@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoList Login page</title>
+    <link rel="stylesheet" href="login/login.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-page__form">
+            <div>
+                <input type="text" required class="login-page__form__input" placeholder="Login">
+                <input type="password" required class="login-page__form__input" placeholder="Password">
+            </div>
+            <button id='submitButton' class="login-page__form__button">Log in</button>
+        </div>
+    </div>
+    <script>
+        const click = (e) => {
+            e.preventDefault();
+            const inputs = document.querySelectorAll('.login-page__form__input');
+            const login = inputs[0].value;
+            const password = inputs[1].value;
+            console.log(inputs);
+
+            fetch(`/auth?type=login&login=${login}&password=${password}`)
+            // .then( response => {
+            //     response.text().then( (text) => {
+            //         console.log(text);
+            //     } )
+            // })
+        }
+        document.getElementById('submitButton').addEventListener('click', click);
+    </script>
+</body>
+</html>

@@ -11,7 +11,7 @@ const items = require('express').Router();
 // items.post('/items/:method', middlewares);
 
 
-items.post('/items/:method', function (req, res, next) {
+items.post('/:method', function (req, res, next) {
     const handler = require(`./${req.params.method}.js`);
     handler ? handler(...arguments) : next();
 } )

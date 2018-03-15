@@ -6,7 +6,6 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "server": "cd api && nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
